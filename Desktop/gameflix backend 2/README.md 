@@ -1,0 +1,14 @@
+# Gameflix Backend - Dockerized Spring Boot App
+
+This project demonstrates how to containerize a Spring Boot application using Docker.
+
+## 🛠️ Prerequisites
+- Java 17
+- Maven
+- Docker
+
+## 🔧 How to Build and Run
+
+### 1. Package the App
+```bash
+./mvnw clean install
