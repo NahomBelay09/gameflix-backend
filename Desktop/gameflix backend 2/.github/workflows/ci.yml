@@ -20,9 +20,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Maven (in correct subfolder)
-        working-directory: ./gameflix-backend
+      - name: Build with Maven in correct folder
         run: mvn clean package
+        working-directory: gameflix-backend  # 👈 THIS is the key fix
 
       - name: Build Docker image
-        run: echo "Skip for now"
+        run: echo "Docker build skipped"
