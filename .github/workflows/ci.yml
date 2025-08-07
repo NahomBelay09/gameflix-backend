@@ -6,14 +6,9 @@ on:
   pull_request:
     branches: [ main ]
 
-# >>> Set this to '.' if pom.xml is at repo root,
-# >>> or to 'gameflix-backend' if your project is in a subfolder.
+# CHANGE THIS if your pom.xml is in a subfolder (e.g., gameflix-backend)
 env:
   PROJECT_DIR: .
-
-defaults:
-  run:
-    working-directory: ${{ env.PROJECT_DIR }}
 
 jobs:
   build:
@@ -35,12 +30,16 @@ jobs:
           echo "PWD=$(pwd)"
           ls -la
           test -f pom.xml || (echo "❌ pom.xml not found in $PWD"; exit 1)
+        working-directory: ${{ env.PROJECT_DIR }}
 
       - name: Build with Maven (skip tests)
         run: mvn -B -DskipTests=true clean package
+        working-directory: ${{ env.PROJECT_DIR }}
 
       - name: Show build artifacts (debug)
         run: ls -la target || true
+        working-directory: ${{ env.PROJECT_DIR }}
 
       - name: Build Docker image
         run: docker build -t gameflix-backend:ci .
+        working-directory: ${{ env.PROJECT_DIR }}
