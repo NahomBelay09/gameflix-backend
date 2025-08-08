@@ -2,6 +2,7 @@ package gameflix_backend_;
 
 import gameflix_backend_.model.Movie;
 import gameflix_backend_.service.MovieService;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
